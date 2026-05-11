@@ -1,3 +1,4 @@
+import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -104,14 +105,13 @@ export default function ProgramsPage() {
                   Book a Visit
                   <ArrowRight size={19} />
                 </Link>
-                {/* @ts-ignore */}
-                <dotlottie-wc
-                  src="https://lottie.host/af3ce23d-e81c-45ba-aece-4113f662bd11/sscRTWMNAA.lottie"
-                  style={{ width: "190px", height: "190px" }}
-                  className="absolute -bottom-8 -right-4 hidden lg:block opacity-90 mix-blend-multiply"
-                  autoplay
-                  loop
-                ></dotlottie-wc>
+                {React.createElement("dotlottie-wc", {
+                  src: "https://lottie.host/af3ce23d-e81c-45ba-aece-4113f662bd11/sscRTWMNAA.lottie",
+                  style: { width: "190px", height: "190px" },
+                  className: "absolute -bottom-8 -right-4 hidden lg:block opacity-90 mix-blend-multiply",
+                  autoplay: true,
+                  loop: true,
+                })}
               </div>
             </div>
           </div>
