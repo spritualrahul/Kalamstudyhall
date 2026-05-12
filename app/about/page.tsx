@@ -23,41 +23,41 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-white pt-[118px]">
+      <section className="relative overflow-hidden bg-white pt-[100px] sm:pt-[118px]">
         <DoodleLayer variant="right" />
-        <div className="page-container grid gap-10 py-10 lg:grid-cols-[0.86fr_1.14fr]">
+        <div className="page-container grid gap-8 py-6 sm:gap-10 sm:py-10 lg:grid-cols-[0.86fr_1.14fr]">
           <div>
             <SectionBadge icon="book" label="Our Story" tone="purple" />
-            <h1 className="mt-6 text-[clamp(3.2rem,6vw,5.2rem)] font-black leading-[1.05] text-[var(--kalam-navy)]">
+            <h1 className="mt-4 text-[clamp(2rem,6vw,5.2rem)] font-black leading-[1.05] text-[var(--kalam-navy)] sm:mt-6">
               About
               <br />
               <GradientWord from="#F45B56" via="#C83FEA" to="#6E3FE5">Kalam</GradientWord>{" "}
               Study Hall
             </h1>
 
-            <div className="mt-8 grid gap-4 border-b border-dashed border-[#DACDFF] pb-7">
+            <div className="mt-6 grid gap-4 border-b border-dashed border-[#DACDFF] pb-6 sm:mt-8 sm:pb-7">
               {aboutIntro.map((line, index) => (
-                <div key={line} className="flex gap-4">
+                <div key={line} className="flex gap-3 sm:gap-4">
                   <IconBubble
                     icon={index === 0 ? "pencil" : "users"}
                     tone={index === 0 ? "purple" : "pink"}
                     size="sm"
                   />
-                  <p className="text-base leading-7 text-[var(--kalam-navy)]">{line}</p>
+                  <p className="text-sm leading-6 text-[var(--kalam-navy)] sm:text-base sm:leading-7">{line}</p>
                 </div>
               ))}
             </div>
 
-            <div className="mt-7 space-y-5 text-[0.98rem] leading-7 text-[var(--kalam-muted)]">
+            <div className="mt-5 space-y-4 text-[0.92rem] leading-6 text-[var(--kalam-muted)] sm:mt-7 sm:space-y-5 sm:text-[0.98rem] sm:leading-7">
               {aboutParagraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
           </div>
 
-          <div className="space-y-8">
-            <div className="relative overflow-hidden rounded-[2rem] shadow-2xl shadow-purple-100">
-              <div className="relative h-[430px]">
+          <div className="space-y-6 sm:space-y-8">
+            <div className="relative overflow-hidden rounded-2xl shadow-2xl shadow-purple-100 sm:rounded-[2rem]">
+              <div className="relative h-[260px] sm:h-[350px] lg:h-[430px]">
                 <Image
                   src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=900&h=600&fit=crop&q=85"
                   alt="Excited children raising hands in a bright classroom"
@@ -67,7 +67,7 @@ export default function AboutPage() {
                   sizes="(max-width: 1024px) 100vw, 56vw"
                 />
               </div>
-              <div className="grid gap-0 bg-white p-6 sm:grid-cols-4">
+              <div className="grid grid-cols-2 gap-0 bg-white p-4 sm:grid-cols-4 sm:p-6">
                 {[
                   ["users", "Learn Together", "purple"],
                   ["lightbulb", "Explore Possibilities", "yellow"],
@@ -76,13 +76,13 @@ export default function AboutPage() {
                 ].map(([icon, label, tone]) => (
                   <div
                     key={label}
-                    className="border-slate-200 px-4 py-3 text-center text-sm font-extrabold text-[var(--kalam-navy)] sm:border-l first:sm:border-l-0"
+                    className="border-slate-200 px-3 py-3 text-center text-xs font-extrabold text-[var(--kalam-navy)] sm:border-l sm:px-4 sm:text-sm first:sm:border-l-0"
                   >
                     <IconBubble
                       icon={icon as "users"}
                       tone={tone as "purple"}
                       size="sm"
-                      className="mx-auto mb-3"
+                      className="mx-auto mb-2 sm:mb-3"
                     />
                     {label}
                   </div>
@@ -91,17 +91,17 @@ export default function AboutPage() {
             </div>
 
             <div>
-              <h2 className="text-center text-3xl font-black text-[var(--kalam-navy)]">
+              <h2 className="text-center text-2xl font-black text-[var(--kalam-navy)] sm:text-3xl">
                 Our Mission & Vision
               </h2>
-              <div className="mt-6 grid gap-5 md:grid-cols-2">
+              <div className="mt-5 grid gap-4 sm:mt-6 sm:gap-5 md:grid-cols-2">
                 {missionVision.map((item) => (
-                  <article key={item.title} className="k-card-soft p-7 text-center">
+                  <article key={item.title} className="k-card-soft p-5 text-center sm:p-7">
                     <IconBubble icon={item.icon} tone={item.tone} size="lg" />
-                    <h3 className="mt-5 text-xl font-black text-[var(--kalam-navy)]">
+                    <h3 className="mt-4 text-lg font-black text-[var(--kalam-navy)] sm:mt-5 sm:text-xl">
                       {item.title}
                     </h3>
-                    <p className="mt-4 text-sm leading-6 text-[var(--kalam-muted)]">
+                    <p className="mt-3 text-sm leading-6 text-[var(--kalam-muted)] sm:mt-4">
                       {item.description}
                     </p>
                   </article>
@@ -114,38 +114,38 @@ export default function AboutPage() {
 
       <section className="page-section bg-[#FFFEFB]">
         <div className="page-container">
-          <h2 className="text-center text-3xl font-black text-[var(--kalam-navy)]">
+          <h2 className="text-center text-2xl font-black text-[var(--kalam-navy)] sm:text-3xl">
             Why Parents Choose Kalam
           </h2>
-          <div className="k-card mt-7 grid gap-0 p-6 md:grid-cols-3 xl:grid-cols-6">
+          <div className="k-card mt-5 grid gap-0 p-4 sm:mt-7 sm:p-6 grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
             {parentReasons.map((reason, index) => (
               <article
                 key={reason.title}
-                className="px-5 py-6 text-center xl:border-l xl:border-[#E6DAFF] first:xl:border-l-0"
+                className="px-3 py-4 text-center sm:px-5 sm:py-6 xl:border-l xl:border-[#E6DAFF] first:xl:border-l-0"
               >
                 <IconBubble icon={reason.icon} tone={reason.tone} size="md" />
-                <h3 className="mt-4 text-base font-black leading-tight text-[var(--kalam-navy)]">
+                <h3 className="mt-3 text-sm font-black leading-tight text-[var(--kalam-navy)] sm:mt-4 sm:text-base">
                   {reason.title}
                 </h3>
-                <p className="mt-3 text-sm leading-6 text-[var(--kalam-muted)]">{reason.description}</p>
+                <p className="mt-2 text-xs leading-5 text-[var(--kalam-muted)] sm:mt-3 sm:text-sm sm:leading-6">{reason.description}</p>
                 {index === parentReasons.length - 1 ? (
-                  <KalamIcon name="trophy" className="mx-auto mt-4 text-[#2474E8]" size={20} />
+                  <KalamIcon name="trophy" className="mx-auto mt-3 text-[#2474E8] sm:mt-4" size={20} />
                 ) : null}
               </article>
             ))}
           </div>
 
-          <div className="k-card-soft mt-10 grid overflow-hidden md:grid-cols-[1fr_0.8fr_0.62fr]">
-            <div className="p-9">
-              <p className="text-5xl font-black leading-none text-[#6E3FE5]">“</p>
-              <blockquote className="mt-2 text-lg font-bold leading-8 text-[var(--kalam-navy)]">
+          <div className="k-card-soft mt-8 grid overflow-hidden sm:mt-10 md:grid-cols-[1fr_0.8fr] lg:grid-cols-[1fr_0.8fr_0.62fr]">
+            <div className="p-6 sm:p-9">
+              <p className="text-4xl font-black leading-none text-[#6E3FE5] sm:text-5xl">"</p>
+              <blockquote className="mt-2 text-base font-bold leading-7 text-[var(--kalam-navy)] sm:text-lg sm:leading-8">
                 Kalam means Pen and a place where people come together - and every child at
                 Kalam Study Hall is encouraged to write their own story with confidence,
                 creativity, and purpose.
               </blockquote>
-              <p className="mt-5 font-extrabold text-[#6E3FE5]">- Dr. A.P.J. Abdul Kalam</p>
+              <p className="mt-4 font-extrabold text-[#6E3FE5] sm:mt-5">- Dr. A.P.J. Abdul Kalam</p>
             </div>
-            <div className="relative min-h-[230px]">
+            <div className="relative min-h-[180px] sm:min-h-[230px]">
               <Image
                 src="https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?w=700&h=500&fit=crop&q=85"
                 alt="A child writing thoughtfully at a desk"
@@ -154,10 +154,10 @@ export default function AboutPage() {
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
-            <div className="bg-gradient-to-br from-[#7B4EF4] to-[#5A34D6] p-9 text-white">
+            <div className="bg-gradient-to-br from-[#7B4EF4] to-[#5A34D6] p-6 text-white sm:p-9">
               {["Dream Big", "Learn Deep", "Create More", "Inspire Others", "Succeed Together"].map(
                 (item, index) => (
-                  <p key={item} className="mt-4 flex items-center gap-3 first:mt-0">
+                  <p key={item} className="mt-3 flex items-center gap-3 first:mt-0 sm:mt-4">
                     <KalamIcon
                       name={index === 0 ? "star" : index === 1 ? "lightbulb" : index === 2 ? "heart" : index === 3 ? "party" : "trophy"}
                       size={18}

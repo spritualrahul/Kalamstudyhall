@@ -20,6 +20,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -29,6 +30,7 @@ body {
   font-family: var(--font-body), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: geometricPrecision;
+  overflow-x: hidden;
 }
 
 h1,
@@ -45,10 +47,21 @@ h6 {
   background: rgba(123, 78, 244, 0.18);
 }
 
+img, video, svg {
+  max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* ─── Sections & Containers ─── */
+
 .page-section {
   position: relative;
   overflow: hidden;
-  padding: 5rem 0;
+  padding: 3rem 0;
 }
 
 .page-container {
@@ -56,22 +69,24 @@ h6 {
   z-index: 1;
   width: 100%;
   max-width: 1920px;
-  padding-inline: clamp(1.5rem, 4vw, 4rem);
+  padding-inline: clamp(1rem, 4vw, 4rem);
   margin-inline: auto;
 }
 
 .section-title {
   color: var(--kalam-navy);
-  font-size: clamp(2.4rem, 5vw, 4.35rem);
+  font-size: clamp(1.75rem, 5vw, 4.35rem);
   font-weight: 900;
   line-height: 1.05;
 }
 
 .section-copy {
   color: var(--kalam-muted);
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-size: clamp(0.95rem, 2vw, 1.2rem);
   line-height: 1.75;
 }
+
+/* ─── Cards ─── */
 
 .k-card {
   border: 1px solid var(--kalam-line);
@@ -117,14 +132,17 @@ h6 {
   box-shadow: 0 18px 48px rgba(29, 37, 74, 0.08);
 }
 
+/* ─── Buttons ─── */
+
 .k-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
   border-radius: 999px;
-  padding: 0.9rem 1.55rem;
+  padding: 0.75rem 1.35rem;
   font-weight: 900;
+  font-size: 0.875rem;
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
@@ -132,15 +150,78 @@ h6 {
   transform: translateY(-2px);
 }
 
+/* ─── Weekend photo collage (mobile-first) ─── */
 
+.weekend-collage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
 
-@media (max-width: 768px) {
+.weekend-collage > div {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 4px solid white;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.weekend-collage > div:nth-child(1) {
+  aspect-ratio: 4 / 3;
+}
+
+.weekend-collage > div:nth-child(2) {
+  aspect-ratio: 4 / 3;
+}
+
+.weekend-collage > div:nth-child(3) {
+  aspect-ratio: 4 / 3;
+}
+
+.weekend-collage > div:nth-child(4) {
+  aspect-ratio: 4 / 3;
+}
+
+/* ─── Responsive Breakpoints ─── */
+
+/* Extra small screens (320px–479px) */
+@media (max-width: 479px) {
   .page-section {
-    padding: 3.5rem 0;
+    padding: 2rem 0;
+  }
+
+  .page-container {
+    padding-inline: 1rem;
+  }
+
+  .k-button {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.82rem;
+  }
+
+  .program-card-listing {
+    min-height: auto;
+  }
+
+  .section-title {
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
   }
 }
 
+/* Small screens (480px–767px) */
+@media (min-width: 480px) {
+  .k-button {
+    padding: 0.85rem 1.45rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablets and up (768px+) */
 @media (min-width: 768px) {
+  .page-section {
+    padding: 4rem 0;
+  }
+
   .carousel-slide {
     flex-basis: calc((100% - 1.5rem) / 2);
   }
@@ -148,8 +229,70 @@ h6 {
   .experience-slide {
     flex-basis: calc((100% - 1.5rem) / 2);
   }
+
+  .k-button {
+    padding: 0.9rem 1.55rem;
+    font-size: 1rem;
+  }
+
+  .weekend-collage {
+    gap: 1rem;
+  }
 }
 
+/* Large screens (1024px+) */
+@media (min-width: 1024px) {
+  .page-section {
+    padding: 5rem 0;
+  }
+
+  .weekend-collage {
+    position: relative;
+    display: block;
+    min-height: 430px;
+  }
+
+  .weekend-collage > div {
+    position: absolute;
+    border-width: 6px;
+    border-radius: 1.35rem;
+  }
+
+  .weekend-collage > div:nth-child(1) {
+    left: 0;
+    top: 6%;
+    height: 56%;
+    width: 68%;
+    border-radius: 1.6rem;
+    aspect-ratio: auto;
+  }
+
+  .weekend-collage > div:nth-child(2) {
+    right: 0;
+    top: 22%;
+    height: 38%;
+    width: 48%;
+    aspect-ratio: auto;
+  }
+
+  .weekend-collage > div:nth-child(3) {
+    bottom: 0;
+    left: 16%;
+    height: 35%;
+    width: 44%;
+    aspect-ratio: auto;
+  }
+
+  .weekend-collage > div:nth-child(4) {
+    bottom: 8%;
+    right: 10%;
+    height: 30%;
+    width: 36%;
+    aspect-ratio: auto;
+  }
+}
+
+/* Desktop (1180px+) */
 @media (min-width: 1180px) {
   .carousel-slide {
     flex-basis: calc((100% - 3rem) / 3);

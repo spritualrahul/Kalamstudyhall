@@ -276,11 +276,11 @@ export function ProgramCard({
   return (
     <article
       className={cn(
-        "k-card group flex h-full flex-col overflow-hidden",
+        "k-card group flex h-full flex-col",
         isListing ? "program-card-listing" : "program-card-home",
       )}
     >
-      <div className={cn("relative overflow-hidden bg-slate-100", isListing ? "h-[10.5rem]" : "h-44")}>
+      <div className={cn("relative overflow-hidden rounded-t-[1rem] bg-slate-100", isListing ? "h-[10.5rem]" : "h-44")}>
         <Image
           src={program.image}
           alt=""
@@ -292,7 +292,7 @@ export function ProgramCard({
           style={{ objectPosition: program.imagePosition ?? "50% 50%" }}
         />
       </div>
-      <div className={cn("flex flex-1 flex-col text-center", isListing ? "px-6 pb-6" : "px-6 pb-6")}>
+      <div className={cn("relative z-10 flex flex-1 flex-col text-center", isListing ? "px-6 pb-6" : "px-6 pb-6")}>
         <IconBubble
           icon={program.icon}
           tone={program.tone}

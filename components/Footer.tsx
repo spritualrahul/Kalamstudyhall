@@ -27,19 +27,19 @@ export default function Footer() {
       </div>
 
       <div className="bg-[#081331] text-white">
-        <div className="mx-auto max-w-[1379px] px-6 py-12 md:px-10">
-          <div className="grid gap-10 lg:grid-cols-[1.35fr_0.8fr_1.25fr_1.2fr_1fr]">
-            <div>
+        <div className="mx-auto max-w-[1379px] px-4 py-8 sm:px-6 sm:py-12 md:px-10">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-[1.35fr_0.8fr_1.25fr_1.2fr_1fr] sm:gap-10">
+            <div className="sm:col-span-2 lg:col-span-1">
               <BrandLogo compact />
-              <p className="mt-5 max-w-sm text-sm leading-6 text-white/72">
+              <p className="mt-4 max-w-sm text-sm leading-6 text-white/72 sm:mt-5">
                 Kalam Study Hall is a creative after-school enrichment space where children come
                 together to learn with confidence, curiosity, creativity, and joy.
               </p>
-              <p className="mt-4 max-w-sm text-sm leading-6 text-white/72">
+              <p className="mt-3 max-w-sm text-sm leading-6 text-white/72 sm:mt-4">
                 Through academics, communication development, creative workshops, and meaningful
                 experiences, we help children grow beyond classrooms.
               </p>
-              <div className="mt-6 flex gap-3">
+              <div className="mt-5 flex gap-3 sm:mt-6">
                 {socials.map(({ label, icon, color }) => (
                   <a
                     key={label}
@@ -96,16 +96,16 @@ export default function Footer() {
               </li>
               <li className="flex gap-3 text-sm text-white/78">
                 <Mail className="shrink-0 text-white/80" size={18} />
-                <a href={`mailto:${contact.email}`}>{contact.email}</a>
+                <a href={`mailto:${contact.email}`} className="break-all">{contact.email}</a>
               </li>
               <li className="flex gap-3 text-sm text-white/78">
                 <KalamIcon name="globe" size={18} className="shrink-0 text-white/80" />
-                <span>{contact.website}</span>
+                <span className="break-all">{contact.website}</span>
               </li>
             </FooterColumn>
           </div>
 
-          <div className="mt-10 border-t border-white/12 pt-6 text-center text-sm text-white/65">
+          <div className="mt-8 border-t border-white/12 pt-5 text-center text-xs text-white/65 sm:mt-10 sm:pt-6 sm:text-sm">
             <span className="text-[#FF72AE]">Kalam</span> - A space where children come together
             to learn, explore, create, and grow.
           </div>
@@ -153,7 +153,7 @@ function FooterColumn({
   return (
     <div>
       <h3 className={cn("text-sm font-extrabold uppercase tracking-wide", tone)}>{title}</h3>
-      <ul className="mt-5 space-y-3">{children}</ul>
+      <ul className="mt-4 space-y-2.5 sm:mt-5 sm:space-y-3">{children}</ul>
     </div>
   );
 }
